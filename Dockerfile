@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     libzip-dev \
     git \
-    mysql-client \
+    default-mysql-client \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 
 WORKDIR /var/www
