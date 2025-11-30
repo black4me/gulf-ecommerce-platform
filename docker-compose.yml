@@ -2,8 +2,8 @@ version: '3.8'
 
 services:
   app:
-build: .    container_n
-    container_name: gulf-ecommerce-app
+build: .
+    container_name:  gulf-ecommerce-app
     restart: unless-stopped
     working_dir: /var/www
     volumes:
