@@ -66,14 +66,4 @@ volumes:
     driver: local
 
 
-  composer:
-    image: composer:latest
-    container_name: gulf-ecommerce-composer
-    volumes:
-      - ./:/var/www
-    working_dir: /var/www
-    networks:
-      - gulf-network
-          command: install  
-          Fix: Correct Composer service indentation in docker-compose.yml    
-          
+  
