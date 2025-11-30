@@ -4,7 +4,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      image: php:8.2-fpm-alpine
     container_name: gulf-ecommerce-app
     restart: unless-stopped
     working_dir: /var/www
