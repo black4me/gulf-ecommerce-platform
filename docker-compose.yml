@@ -2,8 +2,6 @@ version: '3.8'
 
 services:
   app:
-    build:
-      context: .
       image: php:8.2-fpm-alpine
     container_name: gulf-ecommerce-app
     restart: unless-stopped
