@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gulf-ecommerce-app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    networks:
+      - gulf-network
+    environment:
+      - APP_ENV=local
+      - APP_TIMEZONE=Asia/Dubai
+    depends_on:
+      - mysql
+      - redis
+
+  nginx:
+    image: nginx:alpine
+    container_name: gulf-ecommerce-nginx
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx:/etc/nginx/conf.d
+    networks:
+      - gulf-network
+    depends_on:
+      - app
+
+  mysql:
+    image: mysql:8.0
+    container_name: gulf-ecommerce-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-gulf_ecommerce}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
+      MYSQL_USER: ${DB_USERNAME:-gulf_user}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-gulf_password}
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - gulf-network
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: redis:alpine
+    container_name: gulf-ecommerce-redis
+    restart: unless-stopped
+    networks:
+      - gulf-network
+    ports:
+      - "6379:6379"
+
+networks:
+  gulf-network:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local
