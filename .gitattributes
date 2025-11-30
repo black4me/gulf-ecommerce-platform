@@ -1,0 +1,71 @@
+# Auto detect text files and normalize line endings to LF
+* text=auto
+
+# PHP
+*.php text eol=lf
+*.phps text eol=lf
+
+# JavaScript
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+
+# Vue.js
+*.vue text eol=lf
+
+# CSS
+*.css text eol=lf
+*.scss text eol=lf
+*.sass text eol=lf
+*.less text eol=lf
+
+# HTML
+*.html text eol=lf
+*.blade.php text eol=lf
+
+# JSON
+*.json text eol=lf
+*.lock text eol=lf
+
+# YAML
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# Markdown
+*.md text eol=lf
+*.markdown text eol=lf
+
+# Docker
+Dockerfile text eol=lf
+
+# Bash
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Binary files
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.ico binary
+*.mov binary
+*.mp4 binary
+*.mp3 binary
+*.gz binary
+*.zip binary
+*.7z binary
+*.ttf binary
+*.otf binary
+*.db binary
+*.sqlite binary
+*.exe binary
+*.dll binary
+
+# Export files
+*.xlsx binary
+*.xls binary
+*.csv text eol=lf
+
+# Diff files
+*.patch text eol=lf
