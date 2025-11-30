@@ -74,5 +74,6 @@ volumes:
     working_dir: /var/www
     networks:
       - gulf-network
-          command: install
-    command: install
+          command: install  
+          Fix: Correct Composer service indentation in docker-compose.yml    
+          
